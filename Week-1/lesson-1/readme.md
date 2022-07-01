@@ -1,3 +1,5 @@
+[Week-1](../readme.md)
+
 # Kickstarter
 
 ## Category Statistics:

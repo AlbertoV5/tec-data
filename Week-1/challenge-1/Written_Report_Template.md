@@ -1,5 +1,3 @@
-[Week-1](../readme.md)
-
 # Kickstarting with Excel
 
 ## Overview of Project
