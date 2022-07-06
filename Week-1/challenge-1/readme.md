@@ -45,18 +45,18 @@ outcome of plays based on their goals
 To gain more insight into the successful campaigns and discard outliers from our dataset, we need to filter our data **and then** get a few parameters that will help improve our analysis
 
 With Excel formulas, we can find the rows we are interested in by using:
-```excel
+```java
 COUNTIFS(criteria, range, ...)
 ```
 
-So we can gather the information for our new table with this formula:
+So we can gather the information for our new table with this Excel formula:
 
-```excel
+```java
 =COUNTIFS(
     Subcategory, "=plays", 
     Outcomes, "=" &B$15, 
-    Goals,">="&$I2, 
-    Goals,"<"&$I3
+    Goals, ">=" &$I2, 
+    Goals, "<" &$I3
 )
 ```
 Where Subcategory, Outcomes and Goals are named ranges in the Kickstarter spreadsheet. Also "B", "C" and "D" at 15 are "Successful, "Failed" and "Canceled" respectively, and the "I" column contains the lower and upper limits of the Goal range. The result is a more organized table with just the information we need:
@@ -94,9 +94,9 @@ And finally, we generate a chart using the percentage data.
 | A | 5000 to 9999| 169	|55%	|45%	|0%
 | B | 35000 to 39999 | 6 | 67%  |33% |0% |
 
- 2. Filtering can become too convoluted if looking for many variables so we must assert that the results are consistent. For example, making sure that our percentages sum to 100% or that the "sum of the row totals" matches all the possible cases in our dataset. We can use this formula to make sure we didn't miss a row:
+ 2. Filtering can become too convoluted if looking for many variables so we must assert that the results are consistent. For example, making sure that our percentages sum to 100% or that the "sum of the row totals" matches all the possible cases in our dataset. We can use this Excel formula to make sure we didn't miss a row:
 
-```excel
+```java
 =IF(
     SUM(B14:D14) = COUNTIFS(
         Subcategory,"=plays", Outcomes,"<>live"
