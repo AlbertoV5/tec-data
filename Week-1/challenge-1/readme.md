@@ -23,21 +23,21 @@ outcome of theater campaigns based on launch date
 
 ## Analysis of Outcomes Based on Launch Date
 
-Using Excel's Pivot Tables we can get the total amount of outcomes, then display them by launch date but only keep the month part of it. This means that all data points with January as their launch date month will be included regardless of their year or day. Finally, we can filter by theater category and sort the columns from "successful" to "canceled".
-
-<img src="./resources/Theater_Outcomes_vs_Launch.png" alt="drawing" width="750"/>
-
-As a reference, here are the total amount of outcomes regardless of the launch date.
+We can start by getting the total amount of successful, failed and canceled campaigns using Excel Pivot Tables:
 |	Successful	|Failed|   Canceled|	Total|
 |-----|---|-----|-----|
 |	839	|493|   37|	1369|
 
-**Comment:** Our best chance seems to be launching the campaign in the month of May, although we still more information about what constitutes a successful campaign.
+Then we add the campaign launch date as a row but we only keep the month information. This means that all the campaigns launched in January will be added to the total January count regardless of their year or day. We can filter by Category and select to show only "theater" campaigns and finally, we can create a line chart from our resultant table:
 
-Our next step is to filter the campaigns by:
+<img src="./resources/Theater_Outcomes_vs_Launch.png" alt="drawing" width="750"/>
+
+**Comment:** Our best chance seems to launch the campaign in May, although we still more information about what other parameters make a successful campaign.
+
+Our next step is to filter by:
 
 ```
-outcome of plays based on their monetary goals
+outcome of plays based on their goals
 ```
 
 ## Analysis of Outcomes Based on Goals
@@ -95,7 +95,7 @@ And finally, we generate a chart using the percentage data.
 | A | 5000 to 9999| 169	|55%	|45%	|0%
 | B | 35000 to 39999 | 6 | 67%  |33% |0% |
 
-2. Filtering can become too convoluted if looking for many variables so we must be careful to assert that the results are consistent. For example, making sure that our percentages sum to 100% or that the "sum of the row totals" matches all the possible cases in our dataset. We can use this formula to make sure we didn't miss anything:
+2. Filtering can become too convoluted if looking for many variables so we must be careful to assert that the results are consistent. For example, making sure that our percentages sum to 100% or that the "sum of the row totals" matches all the possible cases in our dataset. We can use this formula to make sure we didn't miss a row:
 
 ```excel
 =IF(
@@ -127,10 +127,19 @@ And finally, we generate a chart using the percentage data.
   4. Finally, updating the dataset to more recent dates may help us when making predictions.
 
 ### Other possible tables and/or graphs we could create.
-  1. In the case of "Outcomes Based on Goal", we should probably take a few more steps by first removing the outliers and then changing the scale of the ranges to either a log or square root to get a greater resolution in the lower values and slowly scale-out the larger ones as they can be summarized to "anything higher than $25,000".
+
+  1. We can solve the noise problems by getting more parameters such as interquartile range or standard deviation and then include those values in our Excel formulas to further filter the data.
   2. We can better visualize the outliers problem with a Box and Whisker plot once we get rid of any cases over $50,000 or even over $25,000.
+  3. We should take a few more steps when creating our "Outcome and Goals" table by first removing the outliers and then changing the scale of the ranges to either a log or square root for greater granularity in the range we are more interested in. For example:
 
-
-Thanks for reading.
-
-Alberto Valdez.
+Possible new ranges:
+``` python
+>>> import math
+>>> size = 5000
+>>> [i*size for i in range(10)] # current
+[0, 5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000]
+>>> [int(math.log(i)*size) for i in range(1,11)]
+[0, 3465, 5493, 6931, 8047, 8958, 9729, 10397, 10986, 11512]
+>>> [int(math.sqrt(i)*size) for i in range(10)]
+[0, 5000, 7071, 8660, 10000, 11180, 12247, 13228, 14142, 15000]
+```
