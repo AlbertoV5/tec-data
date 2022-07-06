@@ -21,7 +21,7 @@ As a first filter criteria, our client specified:
 outcome of theater campaigns based on launch date
 ```
 
-### Analysis of Outcomes Based on Launch Date
+## Analysis of Outcomes Based on Launch Date
 
 Using Excel's Pivot Tables we can get the total amount of outcomes, then display them by launch date but only keeping the month part of it. This means that all datapoints with January as their launch date month will be included regardless of their year or day. Finally, we can filter by theater category and sort the columns from successful to canceled.
 
@@ -40,26 +40,16 @@ Our next step is to filter the campaigns by:
 outcome of plays based on their monetary goals
 ```
 
-### Analysis of Outcomes Based on Goals
+## Analysis of Outcomes Based on Goals
 
 In order to gain more insight on the successful campaigns and discard outliers from our dataset, we need to filter our data **and then** get a few parameters that will help improve our analysis
 
-With Excel formulas, we can find only the cells we are interested using:
+With Excel formulas, we can find only the cells we are interested in by using:
 ```
 COUNTIFS(criteria, range, ...)
 ```
-Which helps us create a brand new table of campaign outcomes and their goals. For example, the first four rows and four cells look like this:
 
-|   |	A	|B|   C|	D|
-|----|-----|---|-----|-----|
-| 1  |	**Goal**	|**Successful**|   **Failed**|	**Canceled**|
-| 2  |	0 to 1000	|141|   45|	0|
-| 3  |	1000 to 4999	|386|   143|	1|
-| 4  | 5000 to 10000 |91	|79	|0|
-|...|...|...|...|...|
-| 14 | 50000 to More |	2	|23	|9 |
-
-We can gather the information for the whole dataset with this formula:
+So we can gather the information for the whole dataset with this formula:
 
 ```excel
 =COUNTIFS(
@@ -69,26 +59,25 @@ We can gather the information for the whole dataset with this formula:
     Kickstarter!$D$2:$D$4115,"<"&$I3
 )
 ```
-Which in this case is the formula for cell B2 but it translates to:
+In this case, this is the formula for cell B2 but it translates to:
 
 ```
 Find all rows that meet this condition:
 
 - The Sub Category is "plays".
-- The Outcome is equal to a specific cell, in this case "Successful, "Failed" or "Canceled".
-- The Goal is higher or equal to a specific cell.
-- The Goal is lesser than another specific cell.
+- The Outcome is equal either "Successful, "Failed" or "Canceled".
+- The Goal is higher or equal to the lower limit.
+- The Goal is lesser than the higher limit.
 ```
+The result is a more organized table with just the information we need:
 
-Steps 3 and 4 can be represented with the following column of lower and upper limits:
-|   |   I|
-|----|----|
-|  1 |  **Limits** |
-|  2 |  0 |
-|  3 |  1000 |
-|  4 |  5000 |
-| ... | ...|
-| 14 | 1E+99 |
+| 1  |	**Goal**	|**Successful**|   **Failed**|	**Canceled**|
+|----|-----|---|-----|-----|
+| 2  |	0 to 1000	|141|   45|	0|
+| 3  |	1000 to 4999	|386|   143|	1|
+| 4  | 5000 to 10000 |91	|79	|0|
+|...|...|...|...|...|
+| 14 | 50000 to More |	2	|23	|9 |
 
 With this information we can get the total and percentages of each range of goals and their outcomes:
 
@@ -104,7 +93,7 @@ And finally we generate a chart with using the percentage data.
 
 <img src="./resources/Outcomes_vs_Goals.png" alt="drawing" width="750"/>
 
-**Conclusion:** Most projects with exceedingly high goals do not succeed, as expected. And although we see a great ratio around the range of 35,000 to 50,000, the population is too small to use it as a good statistic.
+**Conclusion:** Most projects with exceedingly high goals do not succeed, just as expected. And although we see a favorable ratio around the range of 35,000 to 50,000, the population is too small to use it as an accurate statistic.
 
 ### Challenges and Difficulties Encountered
 
