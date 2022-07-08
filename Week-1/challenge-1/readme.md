@@ -1,6 +1,8 @@
-[Week-1](../readme.md)
+[Home: Week-1](../readme.md)
 
-[Excel Workbook](./Kickstarter_challenge.xlsx)
+[Resource: Excel Workbook (Challenge)](./Kickstarter_challenge.xlsx)
+
+[Resource: Lesson Activities](../lesson-1)
 
 # Kickstarting with Excel
 
