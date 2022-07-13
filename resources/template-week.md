@@ -3,18 +3,13 @@
 | [<<Home](../index.md) | [Lesson-1](./lesson-1/readme.md) | [Lesson-2](./lesson-2/readme.md) | [Challenge>>](./challenge/readme.md) |
 
 
-# Lesson-1
-
-Excel.
+# Topic 1
 
 
-# Lesson-2
+# Topic 2
 
 
-# Class-1
-
-
-# Class-2
+# Topic 3
 
 
 # Resources

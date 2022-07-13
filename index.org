@@ -1,0 +1,82 @@
+#+title:     Data Analytics Bootcamp Notes.
+#+author:    Alberto Valdez
+#+email:     avq5ac1@gmail.com
+#+SETUPFILE: https://albertov5.github.io/org-html-themes/org/theme-readtheorg.setup
+#+OPTIONS: num:nil
+#+PROPERTY: header-args :mkdirp yes :dir .
+#+INCLUDE: ./publish.inc
+
+#+NAME: get_format
+#+begin_src elisp :exports none :results silent
+format
+#+end_src
+
+
+#+CALL: make_index[:results value raw]()
+-------
+
+* Site generation
+#+begin_export html
+<p>
+#+end_export
+
+The previous index is generated from the home directory using emacs' org-mode and python.
+
+#+NAME: make_index
+#+BEGIN_SRC python :var frmt = get_format() :results silent :exports code
+"""Get all folders of {name} in cwd. Returns org formatted string."""
+from pathlib import Path
+from orgparse import load
+
+name = "week"
+file = "readme.org"
+# header, title and final formatting
+h1 = lambda ref, text: f"* [[./{ref}/{file}][{text}]]"
+h2 = lambda i, text: f"{i}. {text}"
+t1 = lambda b: (
+    b.split("\n")[0]
+    .replace("#+title:", "")
+    .strip())
+ff = lambda p, c: f"{p}\n{c}"
+
+# Find directories
+paths =     [p for p in sorted(Path.cwd().iterdir())
+            if name in p.name and p.is_dir()]
+# Find index.org files
+files =     [load(p/file) for p in paths]
+# Format titles and paths
+titles =    [h1(p.name, t1(c.get_body()))
+            for p, c in zip(paths, files)]
+# Format headers as list
+headers =   ["\n".join(h2(i, d.get_heading())
+            for i, d in enumerate(c.children))
+            for c in files]
+
+return "\n".join(ff(p, c) for p, c in zip(titles, headers))
+#+END_SRC
+
+The HTML is rendered with org-mode's export dispatcher [fn:org-mode] and a custom css setup inspired by Read the Docs and the Furo theme for sphinx.
+
+I am using an org parser instead of an HTML one because I will also be exporting to markdown and text.
+
+I am also using alpha2phi's guide [fn:writing-docs] as a referece, and spudlyo's video too [fn:spud-video].
+
+#+begin_export html
+</p>
+#+end_export
+
+#+begin_export html
+<div style="width: 80px; padding-bottom: 20px">
+<img src = "./resources/tec-logo.svg" alt="tec-logo"/>
+</div>
+#+end_export
+
+
+* Footnotes
+[fn:org-mode]https://orgmode.org/manual/The-Export-Dispatcher.html
+[fn:writing-docs]https://alpha2phi.medium.com/writing-technical-documentation-with-emacs-276f13284e54
+[fn:spud-video] https://youtu.be/0g9BcZvQbXU
+[fn:py-og-ref]https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html
+[fn:org-format]https://orgmode.org/manual/Results-of-Evaluation.html
+[fn:org-eval]https://orgmode.org/manual/Evaluating-Code-Blocks.html
+[fn:org-pub-links]https://orgmode.org/manual/Publishing-links.html

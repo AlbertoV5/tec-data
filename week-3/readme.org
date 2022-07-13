@@ -1,0 +1,153 @@
+#+title:    Python Fundamentals
+#+author:   Alberto Valdez
+#+email:    avq5ac1@gmail.com
+#+SETUPFILE: https://albertov5.github.io/org-html-themes/org/theme-readtheorg.setup
+#+OPTIONS: num:nil
+#+PROPERTY: header-args :mkdirp yes :dir . :exports both
+#+PROPERTY: header-args:shell :results drawer :wrap example :results silent
+#+PROPERTY: header-args:python :exports both :session session :results output replace
+#+EXPORT_FILE_NAME: readme
+
+| [[../index.org][<<Home]] | [[./lesson-1/readme.org][Lesson-1]] | [[./lesson-2/readme.org][Lesson-2]] | [[./challenge/readme.org][Challenge>>]] |
+
+* Introduction
+
+Python is one of the most popular languages in the world, used in many industries to accomplish different goals. It's very easy to use, as you can focus on the problem and not the intricacies of the language.
+
+Here is a YouTube playlist of keynotes that I've collected over the past month while practicing and studying Python:
+
+#+begin_export html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLdswL3Tb01gznKrZf0_XeOc6ftUO3yZhn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#+end_export
+
+-----------------------
+* Terminal and bash
+
+** Useful commands
+
+*** Print working directory
+#+NAME: pwd
+#+begin_src shell
+pwd
+#+end_src
+
+#+CALL: pwd()
+
+*** List directory
+#+NAME: ls
+#+begin_src shell
+ls
+#+end_src
+
+#+CALL: ls()
+
+*** Change directory
+#+NAME: cd
+#+begin_src shell :var path = "."
+cd $path
+#+end_src
+
+**  Navigating with the Terminal Example
+
+First let's call =ls= to see the contents of the current directory.
+Then let's move into the lesson-1 folder and check if we are actually in that directory with =cd lesson-1 && pwd=.
+The =&&= operator will help us run commands sequentially.
+
+#+NAME: shell_example
+#+begin_src shell
+ls
+cd lesson-1 && pwd
+#+end_src
+
+#+CALL: shell_example()
+
+Use =cd ..= to navigate to the top directory.
+Use =cd ../week-1= to navigate to a directory named "week-1" in the top directory.
+
+*   Git
+
+Version control tool that will allow us to interact with GitHub from the Terminal.
+
+** Installing homebrew
+
+=/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"=
+
+** Installing git
+
+=brew install git=
+
+=brew install git-lfs=
+
+** Checking versions
+#+NAME: git_version
+#+begin_src shell
+git --version
+#+end_src
+#+CALL: git_version()
+
+#+NAME: git_lfs_version
+#+begin_src shell
+git-lfs --version
+#+end_src
+#+CALL: git_lfs_version()
+
+* Python
+
+#+NAME: pyenv_version_name
+#+begin_src shell :exports none
+pyenv version-name
+#+end_src
+
+We will be using call_python_version(). In my case I'll install it using pyenv with =pyenv install= call_pyenv_version_name().
+
+I'll activate the environment with =pyenv local= call_pyenv_version_name() which will tell python to use call_python_version() whenever I execute it in this directory: call_pwd().
+
+We can check the version with:
+
+#+NAME: python_version
+#+begin_src shell
+python --version
+#+end_src
+#+CALL: python_version()
+
+We can run Python from the terminal with:
+#+NAME: python_repl
+#+begin_src shell
+python
+#+end_src
+
+Let's try to use the current environment.
+#+NAME: hello_world
+#+begin_src python
+print("Hello World!")
+#+end_src
+
+#+RESULTS: hello_world
+: Hello World!
+
+** Python versions - End of life
+[[https://endoflife.date/python][End of life]] is a website that shows the dates of when a Python version is not longer receiving security updates. For example:
+
+| Version | Released    | End of life |
+|---------+-------------+-------------|
+|     3.7 | 26 Jun 2018 | 27 Jun 2023 |
+|     2.7 | 03 Jul 2020 | 01 Jan 2020 |
+
+The Python version is best chosen depending on the libraries you are planning on using, and most of the time the better supported versions are the ones released 2+ years ago.
+
+
+* VS Code and GitHub
+
+I use VS Code for working on development but for journaling/studying purposes I am using Emacs with org-mode as it let's me publish to HTML and Markdown while I interact with code blocks in a document wide session.
+
+#+NAME: get_github_account
+#+begin_src elisp :results silent :exports none
+"https://github.com/albertov5/"
+#+end_src
+
+This is my GitHub account: call_get_github_account().
+
+
+* Working with Python files
+
+I'm making sure my working directory is call_pwd() and then I'll open VS Code with =code .=. All new python files for this week will live in this directory.
