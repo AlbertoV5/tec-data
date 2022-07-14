@@ -1,4 +1,4 @@
-# [Readme](./tec-data-01-excel/readme.md)
+# [Excel for Data Analytics](./tec-data-01-excel/readme.md)
 
 1.  Header
 2.  Resources
@@ -8,6 +8,16 @@
 
 1.  Header
 2.  Resources
+
+
+# [Python Fundamentals](./tec-data-03-python/readme.md)
+
+1.  Introduction
+2.  Terminal and bash
+3.  Git
+4.  Python
+5.  VS Code and GitHub
+6.  Working with Python files
 
 ---
 
