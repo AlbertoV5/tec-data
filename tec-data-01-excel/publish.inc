@@ -23,7 +23,7 @@ format
         :base-extension "org"
         :publishing-directory "."
         :publishing-function org-html-publish-to-html
-       ;;:recursive t
+        :recursive t
         ;;:makeindex t
       )))
 (setq format ".html")
@@ -38,7 +38,7 @@ format
         :base-extension "org"
         :publishing-directory "."
         :publishing-function org-gfm-publish-to-gfm
-        ;;:recursive t
+        :recursive t
         ;;:makeindex t
       )))
 (setq format ".md")

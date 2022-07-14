@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-07-13 Wed 23:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Data Analytics Bootcamp Notes.</title>
+<meta name="author" content="Alberto Valdez" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://albertov5.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://albertov5.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://albertov5.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://albertov5.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Data Analytics Bootcamp Notes.</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf651321">Readme</a></li>
+<li><a href="#org1fe4128">Readme</a></li>
+<li><a href="#org5a79ee9">Site generation</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf651321" class="outline-2">
+<h2 id="orgf651321"><a href="./tec-data-01-excel/readme.html">Readme</a></h2>
+<div class="outline-text-2" id="text-orgf651321">
+<ol class="org-ol">
+<li>Header</li>
+<li>Resources</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org1fe4128" class="outline-2">
+<h2 id="org1fe4128"><a href="./tec-data-02-vba/readme.html">Readme</a></h2>
+<div class="outline-text-2" id="text-org1fe4128">
+<ol class="org-ol">
+<li>Header</li>
+<li>Resources</li>
+</ol>
+
+<hr />
+</div>
+</div>
+
+<div id="outline-container-org5a79ee9" class="outline-2">
+<h2 id="org5a79ee9">Site generation</h2>
+<div class="outline-text-2" id="text-org5a79ee9">
+<p>
+
+<p>
+The previous index is generated from the home directory using emacs&rsquo; org-mode and python.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python" id="org3c4d192"><span style="color: #767676;">"""Get all folders of {name} in cwd. Returns org formatted string."""</span>
+<span style="color: #3399DD;">from</span> pathlib <span style="color: #3399DD;">import</span> Path
+<span style="color: #3399DD;">from</span> orgparse <span style="color: #3399DD;">import</span> load
+
+
+<span style="color: #a9dbfa;">name</span> = <span style="color: #c5937c;">"tec-data"</span>
+<span style="color: #CC88CC;">file</span> = <span style="color: #c5937c;">"readme.org"</span>
+<span style="color: #559944;"># </span><span style="color: #559944;">header, title and final formatting</span>
+<span style="color: #a9dbfa;">h1</span> = <span style="color: #3399DD;">lambda</span> ref, text: f<span style="color: #c5937c;">"* [[./</span>{ref}<span style="color: #c5937c;">/</span>{<span style="color: #CC88CC;">file</span>}<span style="color: #c5937c;">][</span>{text}<span style="color: #c5937c;">]]"</span>
+<span style="color: #a9dbfa;">h2</span> = <span style="color: #3399DD;">lambda</span> i, <span style="color: #a9dbfa;">text</span>: f<span style="color: #c5937c;">"</span>{i}<span style="color: #c5937c;">. </span>{text}<span style="color: #c5937c;">"</span>
+t1 = <span style="color: #3399DD;">lambda</span> b: (
+    b.split(<span style="color: #c5937c;">"\n"</span>)[<span style="color: #BBCCAA; font-weight: bold;">0</span>]
+    .replace(<span style="color: #c5937c;">"#+title:"</span>, <span style="color: #c5937c;">""</span>)
+    .strip())
+ff = <span style="color: #3399DD;">lambda</span> p, <span style="color: #a9dbfa;">c</span>: f<span style="color: #c5937c;">"</span>{p}<span style="color: #c5937c;">\n</span>{c}<span style="color: #c5937c;">"</span>
+
+<span style="color: #559944;"># </span><span style="color: #559944;">Find directories</span>
+paths =     [p <span style="color: #3399DD;">for</span> p <span style="color: #3399DD;">in</span> <span style="color: #CC88CC;">sorted</span>(Path.cwd().iterdir())
+            <span style="color: #3399DD;">if</span> name <span style="color: #3399DD;">in</span> p.name <span style="color: #3399DD;">and</span> p.is_dir()]
+<span style="color: #559944;"># </span><span style="color: #559944;">Find index.org files</span>
+<span style="color: #a9dbfa;">files</span> =     [load(p/<span style="color: #CC88CC;">file</span>) <span style="color: #3399DD;">for</span> p <span style="color: #3399DD;">in</span> paths]
+<span style="color: #559944;"># </span><span style="color: #559944;">Format titles and paths</span>
+<span style="color: #a9dbfa;">titles</span> =    [h1(p.name, t1(c.get_body()))
+            <span style="color: #3399DD;">for</span> p, c <span style="color: #3399DD;">in</span> <span style="color: #CC88CC;">zip</span>(paths, files)]
+<span style="color: #559944;"># </span><span style="color: #559944;">Format headers as list</span>
+<span style="color: #a9dbfa;">headers</span> =   [<span style="color: #c5937c;">"\n"</span>.join(h2(i+<span style="color: #BBCCAA; font-weight: bold;">1</span>, d.get_heading())
+            <span style="color: #3399DD;">for</span> i, d <span style="color: #3399DD;">in</span> <span style="color: #CC88CC;">enumerate</span>(c.children))
+            <span style="color: #3399DD;">for</span> c <span style="color: #3399DD;">in</span> files]
+
+<span style="color: #3399DD;">return</span> <span style="color: #c5937c;">"\n"</span>.join(ff(p, c) <span style="color: #3399DD;">for</span> p, c <span style="color: #3399DD;">in</span> <span style="color: #CC88CC;">zip</span>(titles, headers))
+</pre>
+</div>
+
+<p>
+The HTML is rendered with org-mode&rsquo;s export dispatcher <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> and a custom css setup inspired by Read the Docs and the Furo theme for sphinx.
+</p>
+
+<p>
+I am using an org parser instead of an HTML one because I will also be exporting to markdown and text.
+</p>
+
+<p>
+I am also using alpha2phi&rsquo;s guide <sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> as a referece, and spudlyo&rsquo;s video too <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>.
+</p>
+
+</p>
+
+<div style="width: 80px; padding-bottom: 20px">
+<img src = "./resources/tec-logo.svg" alt="tec-logo"/>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://orgmode.org/manual/The-Export-Dispatcher.html">https://orgmode.org/manual/The-Export-Dispatcher.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://alpha2phi.medium.com/writing-technical-documentation-with-emacs-276f13284e54">https://alpha2phi.medium.com/writing-technical-documentation-with-emacs-276f13284e54</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://youtu.be/0g9BcZvQbXU">https://youtu.be/0g9BcZvQbXU</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Alberto Valdez</p>
+<p class="date">Created: 2022-07-13 Wed 23:44</p>
+</div>
+</body>
+</html>
