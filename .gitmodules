@@ -4,3 +4,6 @@
 [submodule "tec-data-03-python"]
 	path = tec-data-03-python
 	url = ./tec-data-03-python
+[submodule "tec-data-01-excel"]
+	path = tec-data-01-excel
+	url = ./tec-data-01-excel
