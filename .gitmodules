@@ -1,3 +1,6 @@
 [submodule "tec-data-02-vba"]
 	path = tec-data-02-vba
 	url = ./tec-data-02-vba
+[submodule "tec-data-03-python"]
+	path = tec-data-03-python
+	url = ./tec-data-03-python
