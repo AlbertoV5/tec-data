@@ -4,10 +4,17 @@
 2.  Resources
 
 
-# [Readme](./tec-data-02-vba/readme.md)
+# [Visual Basic for Applications](./tec-data-02-vba/readme.md)
 
-1.  Header
-2.  Resources
+1.  Introduction
+2.  Reference
+3.  Keywords and Operators
+4.  Design Patterns
+5.  Doing Research
+6.  Developing a Macro
+7.  Running Macros with Buttons
+8.  Debugging and Timing Code
+9.  Footnotes
 
 
 # [Python Fundamentals](./tec-data-03-python/readme.md)
