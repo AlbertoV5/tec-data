@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-07-14 Thu 23:11 -->
+<!-- 2022-07-18 Mon 15:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Analytics Bootcamp Notes.</title>
@@ -23,15 +23,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org00d6c38">1. Excel for Data Analytics</a></li>
-<li><a href="#org8be976b">2. Visual Basic for Applications</a></li>
-<li><a href="#org9503727">3. Python Fundamentals</a></li>
-<li><a href="#org8f5f112">4. Site generation</a></li>
+<li><a href="#org8815932">1. Excel for Data Analytics</a></li>
+<li><a href="#org1b347c0">2. Visual Basic for Applications</a></li>
+<li><a href="#org8b4f5f8">3. Python Fundamentals</a></li>
+<li><a href="#org21108db">4. Site generation</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org00d6c38" class="outline-2">
-<h2 id="org00d6c38"><span class="section-number-2">1.</span> <a href="./tec-data-01-excel/readme.html">Excel for Data Analytics</a></h2>
+<div id="outline-container-org8815932" class="outline-2">
+<h2 id="org8815932"><span class="section-number-2">1.</span> <a href="./01-excel/readme.html">Excel for Data Analytics</a></h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>Header</li>
@@ -39,8 +39,8 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-org8be976b" class="outline-2">
-<h2 id="org8be976b"><span class="section-number-2">2.</span> <a href="./tec-data-02-vba/readme.html">Visual Basic for Applications</a></h2>
+<div id="outline-container-org1b347c0" class="outline-2">
+<h2 id="org1b347c0"><span class="section-number-2">2.</span> <a href="./02-vba/readme.html">Visual Basic for Applications</a></h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>Introduction</li>
@@ -55,24 +55,22 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-org9503727" class="outline-2">
-<h2 id="org9503727"><span class="section-number-2">3.</span> <a href="./tec-data-03-python/readme.html">Python Fundamentals</a></h2>
+<div id="outline-container-org8b4f5f8" class="outline-2">
+<h2 id="org8b4f5f8"><span class="section-number-2">3.</span> <a href="./03-python/readme.html">Python Fundamentals</a></h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>Introduction</li>
-<li>Terminal and bash</li>
-<li>Git</li>
-<li>Python</li>
+<li>How to work with Python.</li>
 <li>VS Code and GitHub</li>
-<li>Working with Python files</li>
+<li>Working with Python</li>
 </ol>
 
 <hr />
 </div>
 </div>
 
-<div id="outline-container-org8f5f112" class="outline-2">
-<h2 id="org8f5f112"><span class="section-number-2">4.</span> Site generation</h2>
+<div id="outline-container-org21108db" class="outline-2">
+<h2 id="org21108db"><span class="section-number-2">4.</span> Site generation</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 
@@ -81,12 +79,12 @@ The previous index is generated from the home directory using emacs&rsquo; org-m
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org3623a2e"><span style="color: #767676;">"""Get all folders of {name} in cwd. Returns org formatted string."""</span>
+<pre class="src src-python" id="orgf5bec73"><span style="color: #767676;">"""Get all folders of {name} in cwd. Returns org formatted string."""</span>
 <span style="color: #3399DD;">from</span> pathlib <span style="color: #3399DD;">import</span> Path
 <span style="color: #3399DD;">from</span> orgparse <span style="color: #3399DD;">import</span> load
 
 
-<span style="color: #a9dbfa;">name</span> = <span style="color: #c5937c;">"tec-data"</span>
+<span style="color: #a9dbfa;">name</span> = <span style="color: #c5937c;">"-"</span>
 <span style="color: #CC88CC;">file</span> = <span style="color: #c5937c;">"readme.org"</span>
 <span style="color: #559944;"># </span><span style="color: #559944;">header, title and final formatting</span>
 <span style="color: #a9dbfa;">h1</span> = <span style="color: #3399DD;">lambda</span> ref, text: f<span style="color: #c5937c;">"* [[./</span>{ref}<span style="color: #c5937c;">/</span>{<span style="color: #CC88CC;">file</span>}<span style="color: #c5937c;">][</span>{text}<span style="color: #c5937c;">]]"</span>
@@ -154,7 +152,7 @@ I am also using alpha2phi&rsquo;s guide <sup><a id="fnr.2" class="footref" href=
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Alberto Valdez</p>
-<p class="date">Created: 2022-07-14 Thu 23:11</p>
+<p class="date">Created: 2022-07-18 Mon 15:06</p>
 </div>
 </body>
 </html>

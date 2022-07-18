@@ -1,10 +1,10 @@
-# [Excel for Data Analytics](./tec-data-01-excel/readme.md)
+# [Excel for Data Analytics](./01-excel/readme.md)
 
 1.  Header
 2.  Resources
 
 
-# [Visual Basic for Applications](./tec-data-02-vba/readme.md)
+# [Visual Basic for Applications](./02-vba/readme.md)
 
 1.  Introduction
 2.  Reference
@@ -17,14 +17,12 @@
 9.  Footnotes
 
 
-# [Python Fundamentals](./tec-data-03-python/readme.md)
+# [Python Fundamentals](./03-python/readme.md)
 
 1.  Introduction
-2.  Terminal and bash
-3.  Git
-4.  Python
-5.  VS Code and GitHub
-6.  Working with Python files
+2.  How to work with Python.
+3.  VS Code and GitHub
+4.  Working with Python
 
 ---
 
@@ -41,7 +39,7 @@ from pathlib import Path
 from orgparse import load
 
 
-name = "tec-data"
+name = "-"
 file = "readme.org"
 # header, title and final formatting
 h1 = lambda ref, text: f"* [[./{ref}/{file}][{text}]]"

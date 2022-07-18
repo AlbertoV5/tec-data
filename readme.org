@@ -23,7 +23,7 @@ from pathlib import Path
 from orgparse import load
 
 
-name = "tec-data"
+name = "-"
 file = "readme.org"
 # header, title and final formatting
 h1 = lambda ref, text: f"* [[./{ref}/{file}][{text}]]"
