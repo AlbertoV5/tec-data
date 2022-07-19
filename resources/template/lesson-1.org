@@ -7,6 +7,6 @@
 #+PROPERTY: header-args:shell :results drawer :wrap example :results silent
 #+PROPERTY: header-args:python :exports both :results output replace
 
-| [[./index.org][<<Back]] |
+| [[./readme.org][<<Back]] |
 
 * Content

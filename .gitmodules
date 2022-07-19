@@ -1,9 +1,12 @@
 [submodule "01-excel"]
 	path = 01-excel
-	url = https://github.com/AlbertoV5/01-excel
+	url = git@github.com:AlbertoV5/tec-data-01-excel.git
 [submodule "02-vba"]
 	path = 02-vba
-	url = https://github.com/AlbertoV5/02-vba
+	url = git@github.com:AlbertoV5/tec-data-02-vba.git
 [submodule "03-python"]
 	path = 03-python
-	url = https://github.com/AlbertoV5/03-python
+	url = git@github.com:AlbertoV5/tec-data-03-python.git
+[submodule "04-dataframes"]
+	path = 04-dataframes
+	url = git@github.com:AlbertoV5/tec-data-04-dataframes.git

@@ -1,4 +1,9 @@
-# [Excel for Data Analytics](./01-excel/readme.md)
+|                                                    |
+|--------------------------------------------------- |
+| [Repository](https://github.com/AlbertoV5/tec-data) |
+
+
+# [Topic Title](./01-excel/readme.md)
 
 1.  Header
 2.  Resources
@@ -20,9 +25,22 @@
 # [Python Fundamentals](./03-python/readme.md)
 
 1.  Introduction
-2.  How to work with Python.
-3.  VS Code and GitHub
-4.  Working with Python
+2.  Python
+3.  Working with Python files
+4.  Python Types
+5.  Python Lists
+6.  Python Tuples
+7.  Python Dictionaries
+8.  Decision Statements
+9.  Loops
+10. F-Strings and Printing
+11. Footnotes
+
+
+# [Topic Title](./04-dataframes/readme.md)
+
+1.  Header
+2.  Resources
 
 ---
 
@@ -39,31 +57,34 @@ from pathlib import Path
 from orgparse import load
 
 
-name = "-"
-file = "readme.org"
-# header, title and final formatting
-h1 = lambda ref, text: f"* [[./{ref}/{file}][{text}]]"
-h2 = lambda i, text: f"{i}. {text}"
-t1 = lambda b: (
-    b.split("\n")[0]
-    .replace("#+title:", "")
-    .strip())
-ff = lambda p, c: f"{p}\n{c}"
+dir_ident = "-"
+file_name = "readme.org"
+titles, headings = [], []
 
-# Find directories
-paths =     [p for p in sorted(Path.cwd().iterdir())
-            if name in p.name and p.is_dir()]
-# Find index.org files
-files =     [load(p/file) for p in paths]
-# Format titles and paths
-titles =    [h1(p.name, t1(c.get_body()))
-            for p, c in zip(paths, files)]
-# Format headers as list
-headers =   ["\n".join(h2(i+1, d.get_heading())
-            for i, d in enumerate(c.children))
-            for c in files]
+def get_title(org_file):
+    return org_file.get_body().split("\n")[0].replace("#+title:", "").strip()
 
-return "\n".join(ff(p, c) for p, c in zip(titles, headers))
+def to_title(path, title):
+    return f"* [[./{path}/{file_name}][{title}]]"
+
+def to_heading(i, path, heading):
+    return  f"{i}. {heading}"
+
+def combine(title, headings):
+    return f"{title}\n{headings}"
+
+paths = [p for p in sorted(Path.cwd().iterdir())
+        if dir_ident in p.name and p.is_dir()]
+
+for path in paths:
+    org_file = load(path/file_name)
+    title = to_title(path.name, get_title(org_file))
+    titles.append(title)
+    heading = "\n".join(to_heading(i+1, path.name, d.get_heading())
+                         for i, d in enumerate(org_file.children))
+    headings.append(heading)
+
+return "\n".join(combine(p, c) for p, c in zip(titles, headings))
 ```
 
 The HTML is rendered with org-mode&rsquo;s export dispatcher <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> and a custom css setup inspired by Read the Docs and the Furo theme for sphinx.

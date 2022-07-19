@@ -9,7 +9,7 @@
 #+INCLUDE: ./publish.inc
 
 
-| [[https://albertov5.github.io/tec-data/index.html][<<<Home]] | [[./lesson-1.org][Lesson-1]] | [[./lesson-2.org][Lesson-2]] | [[./challenge/readme.org][Challenge>>>]] |
+| [[https://albertov5.github.io/tec-data][<<<Home]]            | [[./lesson-1.org][Lesson-1]] | [[./lesson-2.org][Lesson-2]] | [[./challenge/readme.org][Challenge>>>]] |
 
 * Header
 
