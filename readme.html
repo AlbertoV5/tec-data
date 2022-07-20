@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-07-19 Tue 14:01 -->
+<!-- 2022-07-20 Wed 00:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Analytics Bootcamp Notes.</title>
@@ -23,11 +23,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org58e8c13">1. Topic Title</a></li>
-<li><a href="#org4675300">2. Visual Basic for Applications</a></li>
-<li><a href="#org477ebf0">3. Python Fundamentals</a></li>
-<li><a href="#orgf6c9229">4. Topic Title</a></li>
-<li><a href="#orgfac82c7">5. Site generation</a></li>
+<li><a href="#orge8889a6">1. Topic Title</a></li>
+<li><a href="#org852af65">2. Visual Basic for Applications</a></li>
+<li><a href="#orgc709cef">3. Python Fundamentals</a></li>
+<li><a href="#orgf414637">4. Pandas DataFrames</a></li>
+<li><a href="#orge4612a8">5. Site generation</a></li>
 </ul>
 </div>
 </div>
@@ -43,8 +43,8 @@
 </tr>
 </tbody>
 </table>
-<div id="outline-container-org58e8c13" class="outline-2">
-<h2 id="org58e8c13"><span class="section-number-2">1.</span> <a href="./01-excel/readme.html">Topic Title</a></h2>
+<div id="outline-container-orge8889a6" class="outline-2">
+<h2 id="orge8889a6"><span class="section-number-2">1.</span> <a href="./01-excel/readme.html">Topic Title</a></h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>Header</li>
@@ -52,8 +52,8 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-org4675300" class="outline-2">
-<h2 id="org4675300"><span class="section-number-2">2.</span> <a href="./02-vba/readme.html">Visual Basic for Applications</a></h2>
+<div id="outline-container-org852af65" class="outline-2">
+<h2 id="org852af65"><span class="section-number-2">2.</span> <a href="./02-vba/readme.html">Visual Basic for Applications</a></h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>Introduction</li>
@@ -68,8 +68,8 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-org477ebf0" class="outline-2">
-<h2 id="org477ebf0"><span class="section-number-2">3.</span> <a href="./03-python/readme.html">Python Fundamentals</a></h2>
+<div id="outline-container-orgc709cef" class="outline-2">
+<h2 id="orgc709cef"><span class="section-number-2">3.</span> <a href="./03-python/readme.html">Python Fundamentals</a></h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>Introduction</li>
@@ -86,20 +86,20 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf6c9229" class="outline-2">
-<h2 id="orgf6c9229"><span class="section-number-2">4.</span> <a href="./04-dataframes/readme.html">Topic Title</a></h2>
+<div id="outline-container-orgf414637" class="outline-2">
+<h2 id="orgf414637"><span class="section-number-2">4.</span> <a href="./04-dataframes/readme.html">Pandas DataFrames</a></h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
-<li>Header</li>
-<li>Resources</li>
+<li>Overview</li>
+<li>Loading a Dataset with Pandas</li>
 </ol>
 
 <hr />
 </div>
 </div>
 
-<div id="outline-container-orgfac82c7" class="outline-2">
-<h2 id="orgfac82c7"><span class="section-number-2">5.</span> Site generation</h2>
+<div id="outline-container-orge4612a8" class="outline-2">
+<h2 id="orge4612a8"><span class="section-number-2">5.</span> Site generation</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 
@@ -108,39 +108,39 @@ The previous index is generated from the home directory using emacs&rsquo; org-m
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org183ea96"><span style="color: #767676;">"""Get all folders of {name} in cwd. Returns org formatted string."""</span>
-<span style="color: #3399DD;">from</span> pathlib <span style="color: #3399DD;">import</span> Path
-<span style="color: #3399DD;">from</span> orgparse <span style="color: #3399DD;">import</span> load
+<pre class="src src-python" id="orgdaef2e9"><span style="color: #777778;">"""Get all folders of {name} in cwd. Returns org formatted string."""</span>
+<span style="color: #339CDB;">from</span> pathlib <span style="color: #339CDB;">import</span> Path
+<span style="color: #339CDB;">from</span> orgparse <span style="color: #339CDB;">import</span> load
 
 
 <span style="color: #a9dbfa;">dir_ident</span> = <span style="color: #c5937c;">"-"</span>
 <span style="color: #a9dbfa;">file_name</span> = <span style="color: #c5937c;">"readme.org"</span>
 <span style="color: #a9dbfa;">titles</span>, <span style="color: #a9dbfa;">headings</span> = [], []
 
-<span style="color: #3399DD;">def</span> <span style="color: #DDDDAA;">get_title</span>(org_file):
-    <span style="color: #3399DD;">return</span> org_file.get_body().split(<span style="color: #c5937c;">"\n"</span>)[<span style="color: #BBCCAA; font-weight: bold;">0</span>].replace(<span style="color: #c5937c;">"#+title:"</span>, <span style="color: #c5937c;">""</span>).strip()
+<span style="color: #339CDB;">def</span> <span style="color: #D9DAA2;">get_title</span>(org_file):
+    <span style="color: #339CDB;">return</span> org_file.get_body().split(<span style="color: #c5937c;">"\n"</span>)[<span style="color: #B5CEA8; font-weight: bold;">0</span>].replace(<span style="color: #c5937c;">"#+title:"</span>, <span style="color: #c5937c;">""</span>).strip()
 
-<span style="color: #3399DD;">def</span> <span style="color: #DDDDAA;">to_title</span>(path, title):
-    <span style="color: #3399DD;">return</span> f<span style="color: #c5937c;">"* [[./</span>{path}<span style="color: #c5937c;">/</span>{file_name}<span style="color: #c5937c;">][</span>{title}<span style="color: #c5937c;">]]"</span>
+<span style="color: #339CDB;">def</span> <span style="color: #D9DAA2;">to_title</span>(path, title):
+    <span style="color: #339CDB;">return</span> f<span style="color: #c5937c;">"* [[./</span>{path}<span style="color: #c5937c;">/</span>{file_name}<span style="color: #c5937c;">][</span>{title}<span style="color: #c5937c;">]]"</span>
 
-<span style="color: #3399DD;">def</span> <span style="color: #DDDDAA;">to_heading</span>(i, path, heading):
-    <span style="color: #3399DD;">return</span>  f<span style="color: #c5937c;">"</span>{i}<span style="color: #c5937c;">. </span>{heading}<span style="color: #c5937c;">"</span>
+<span style="color: #339CDB;">def</span> <span style="color: #D9DAA2;">to_heading</span>(i, path, heading):
+    <span style="color: #339CDB;">return</span>  f<span style="color: #c5937c;">"</span>{i}<span style="color: #c5937c;">. </span>{heading}<span style="color: #c5937c;">"</span>
 
-<span style="color: #3399DD;">def</span> <span style="color: #DDDDAA;">combine</span>(title, headings):
-    <span style="color: #3399DD;">return</span> f<span style="color: #c5937c;">"</span>{title}<span style="color: #c5937c;">\n</span>{headings}<span style="color: #c5937c;">"</span>
+<span style="color: #339CDB;">def</span> <span style="color: #D9DAA2;">combine</span>(title, headings):
+    <span style="color: #339CDB;">return</span> f<span style="color: #c5937c;">"</span>{title}<span style="color: #c5937c;">\n</span>{headings}<span style="color: #c5937c;">"</span>
 
-<span style="color: #a9dbfa;">paths</span> = [p <span style="color: #3399DD;">for</span> p <span style="color: #3399DD;">in</span> <span style="color: #CC88CC;">sorted</span>(Path.cwd().iterdir())
-        <span style="color: #3399DD;">if</span> dir_ident <span style="color: #3399DD;">in</span> p.name <span style="color: #3399DD;">and</span> p.is_dir()]
+<span style="color: #a9dbfa;">paths</span> = [p <span style="color: #339CDB;">for</span> p <span style="color: #339CDB;">in</span> <span style="color: #C586C0;">sorted</span>(Path.cwd().iterdir())
+        <span style="color: #339CDB;">if</span> dir_ident <span style="color: #339CDB;">in</span> p.name <span style="color: #339CDB;">and</span> p.is_dir()]
 
-<span style="color: #3399DD;">for</span> path <span style="color: #3399DD;">in</span> <span style="color: #a9dbfa;">paths</span>:
+<span style="color: #339CDB;">for</span> path <span style="color: #339CDB;">in</span> <span style="color: #a9dbfa;">paths</span>:
     org_file = load(path/file_name)
     <span style="color: #a9dbfa;">title</span> = to_title(path.name, get_title(org_file))
     titles.append(title)
-    <span style="color: #a9dbfa;">heading</span> = <span style="color: #c5937c;">"\n"</span>.join(to_heading(i+<span style="color: #BBCCAA; font-weight: bold;">1</span>, path.name, d.get_heading())
-                         <span style="color: #3399DD;">for</span> i, d <span style="color: #3399DD;">in</span> <span style="color: #CC88CC;">enumerate</span>(org_file.children))
+    <span style="color: #a9dbfa;">heading</span> = <span style="color: #c5937c;">"\n"</span>.join(to_heading(i+<span style="color: #B5CEA8; font-weight: bold;">1</span>, path.name, d.get_heading())
+                         <span style="color: #339CDB;">for</span> i, d <span style="color: #339CDB;">in</span> <span style="color: #C586C0;">enumerate</span>(org_file.children))
     headings.append(heading)
 
-<span style="color: #3399DD;">return</span> <span style="color: #c5937c;">"\n"</span>.join(combine(p, c) <span style="color: #3399DD;">for</span> p, c <span style="color: #3399DD;">in</span> <span style="color: #CC88CC;">zip</span>(titles, headings))
+<span style="color: #339CDB;">return</span> <span style="color: #c5937c;">"\n"</span>.join(combine(p, c) <span style="color: #339CDB;">for</span> p, c <span style="color: #339CDB;">in</span> <span style="color: #C586C0;">zip</span>(titles, headings))
 </pre>
 </div>
 
@@ -184,7 +184,7 @@ I am also using alpha2phi&rsquo;s guide <sup><a id="fnr.2" class="footref" href=
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: Alberto Valdez</p>
-<p class="date">Created: 2022-07-19 Tue 14:01</p>
+<p class="date">Created: 2022-07-20 Wed 00:39</p>
 </div>
 </body>
 </html>

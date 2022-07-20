@@ -37,10 +37,10 @@
 11. Footnotes
 
 
-# [Topic Title](./04-dataframes/readme.md)
+# [Pandas DataFrames](./04-dataframes/readme.md)
 
-1.  Header
-2.  Resources
+1.  Overview
+2.  Loading a Dataset with Pandas
 
 ---
 
